@@ -9,8 +9,12 @@ from datetime import datetime
 load_dotenv()
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "your_secret_key_here"
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 # Iniciar la base de datos
 db = SQLAlchemy(app)
