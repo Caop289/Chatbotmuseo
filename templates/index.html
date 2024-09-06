@@ -183,7 +183,7 @@
 
             if (userMessage) {
                 const chatBox = document.getElementById("chat-box");
-                chatBox.innerHTML += `<div class="mb-2 text-right"><span class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg">${userMessage}</span></div>`;
+                chatBox.innerHTML += `<div class="mb-2 text-right"><span class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg mt-4">${userMessage}</span></div>`;
 
 
                 fetch("/chat", {
@@ -198,7 +198,7 @@
                 })
                     .then((response) => response.json())
                     .then((data) => {
-                        chatBox.innerHTML += `<div class="mb-2 text-left"><span class="inline-block px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">${data.response}</span></div>`;
+                        chatBox.innerHTML += `<div class="mb-2 text-left"><span class="inline-block px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg mt-4">${data.response}</span></div>`;
                         chatBox.scrollTop = chatBox.scrollHeight;
                     });
 
@@ -210,7 +210,7 @@
         function askChatbot(description) {
             const chatBox = document.getElementById("chat-box");
             const mensaje = `¿Qué puedes contarme sobre ${description}?`
-            chatBox.innerHTML += `<div class="mb-2 text-right"><span class="iinline-block px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">${mensaje}</span></div>`;
+            chatBox.innerHTML += `<div class="mb-2 text-right"><span class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg mt-4">${mensaje}</span></div>`;
             fetch("/chat", {
                 method: "POST",
                 headers: {
@@ -223,7 +223,7 @@
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    chatBox.innerHTML += `<div class="mb-2 text-left"><span class="inline-block px-4 py-2 bg-white dark:bg-white rounded-lg">${data.response}</span></div>`;
+                    chatBox.innerHTML += `<div class="mb-2 text-left"><span class="inline-block px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">${data.response}</span></div>`;
                     chatBox.scrollTop = chatBox.scrollHeight;
                 });
 
